@@ -19,7 +19,7 @@ class BookController extends Controller
             fn ($query, $title) => $query->title($title)
         )->get();
 
-        return view('books.index', [compact('books')]);
+        return view('books.index', compact('books'));
     }
 
     /**
