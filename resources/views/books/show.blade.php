@@ -10,6 +10,7 @@
                 <p>{{ $book->description }}</p>
                 <p>{{ $book->created_at }}</p>
                 <p>{{ $book->updated_at }}</p>
+                <a href="{{ route('books.edit', $book) }}" class="btn">Edit</a>
             </div>
         </div>
     </div>
