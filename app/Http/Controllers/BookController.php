@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BookRequest;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Cache;
 use App\Models\Book;
 
 class BookController extends Controller
@@ -30,7 +31,15 @@ class BookController extends Controller
             default => $books->latest()
         };
 
-        $books = $books->get();
+        // $books = $books->get();
+
+        $cacheKey = 'books:' . $filter . ':' . $title;
+        // $book = Cache::remember('books', 3600, fn() => $books->get());
+        $books = cache()->remember($cacheKey, 3600, fn() => $books->get());
+        // $books = cache()->remember($cacheKey, 3600, function () use ($books) {
+        //     dd('Not from cache');// This will be executed if the cache is missed, the first time the cache is missed
+        //     return $books->get();
+        // });
 
         return view('books.index', compact('books'));
     }
