@@ -31,13 +31,14 @@ class BookController extends Controller
 
         // $books = $books->get();
 
-        $cacheKey = 'books:' . $filter . ':' . $title;
+        $cacheKey = 'books:' . $filter . ':' . $title . ':page:' . $request->input('page', 1);
         // $book = Cache::remember('books', 3600, fn() => $books->get());
-        $books = cache()->remember($cacheKey, 3600, fn() => $books->get());
+        $books = cache()->remember($cacheKey, 3600, fn() => $books->paginate(10));
         // $books = cache()->remember($cacheKey, 3600, function () use ($books) {
         //     dd('Not from cache');// This will be executed if the cache is missed, the first time the cache is missed
         //     return $books->get();
         // });
+
 
         return view('books.index', compact('books'));
     }

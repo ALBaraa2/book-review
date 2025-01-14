@@ -59,5 +59,10 @@
             </div>
           </li>
         @endforelse
-      </ul>
+    </ul>
+    @if ($books->count())
+        <nav class="mt-4 pagination">
+            {{ $books->links() }}
+        </nav>
+    @endif
 @endSection

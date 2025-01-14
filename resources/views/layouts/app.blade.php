@@ -59,6 +59,14 @@
     .reset-link {
       @apply text-slate-500 underline;
     }
+
+    .pagination a {
+        color: gray;
+        background-color: white;
+        float: right;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
   </style>
   {{-- blade-formatter-enable --}}
 </head>
