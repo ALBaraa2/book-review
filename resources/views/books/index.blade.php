@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="mb-10 text-2*1">Books</h1>
+    <h1 class="page-title">Books</h1>
 
     <form action="{{ route('books.index') }}" method="GET" class="mb-4 flex items-center space-x-2">
         <input type="text" name="title" placeholder="Search by title"

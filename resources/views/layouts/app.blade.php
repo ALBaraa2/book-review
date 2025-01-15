@@ -67,6 +67,28 @@
         padding: 8px 16px;
         text-decoration: none;
     }
+
+    .page-title {
+        font-size: 2.5rem; /* Larger font size */
+        font-weight: bold; /* Bold text */
+        color: #2c3e50; /* Dark blue-gray color */
+        text-align: center; /* Center the text */
+        margin-bottom: 20px; /* Space below the title */
+        padding-bottom: 10px; /* Space for the underline */
+        position: relative; /* For the underline effect */
+    }
+
+    .page-title::after {
+        content: '';
+        width: 60px; /* Width of the underline */
+        height: 4px; /* Thickness of the underline */
+        background-color: #e74c3c; /* Red color for the underline */
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%); /* Center the underline */
+        border-radius: 2px; /* Slightly rounded corners */
+    }
   </style>
   {{-- blade-formatter-enable --}}
 </head>
