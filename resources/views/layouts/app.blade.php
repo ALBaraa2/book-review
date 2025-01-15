@@ -61,33 +61,31 @@
     }
 
     .pagination a {
-        color: gray;
-        background-color: white;
-        float: right;
-        padding: 8px 16px;
-        text-decoration: none;
+        @apply text-gray-600 bg-white hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out py-2 px-4 no-underline rounded-lg border border-gray-200 shadow-sm hover:shadow-md;
     }
 
+    /* Active Pagination Link */
+    .pagination a.active {
+        @apply bg-blue-500 text-white border-blue-500;
+    }
+
+    /* Disabled Pagination Link */
+    .pagination a.disabled {
+        @apply text-gray-400 bg-gray-100 cursor-not-allowed hover:bg-gray-100 hover:text-gray-400;
+    }
+
+    /* Page Title */
     .page-title {
-        font-size: 2.5rem; /* Larger font size */
-        font-weight: bold; /* Bold text */
-        color: #2c3e50; /* Dark blue-gray color */
-        text-align: center; /* Center the text */
-        margin-bottom: 20px; /* Space below the title */
-        padding-bottom: 10px; /* Space for the underline */
-        position: relative; /* For the underline effect */
+        @apply text-5xl font-extrabold text-slate-900 text-center mb-8 pb-3 relative;
     }
 
     .page-title::after {
-        content: '';
-        width: 60px; /* Width of the underline */
-        height: 4px; /* Thickness of the underline */
-        background-color: #e74c3c; /* Red color for the underline */
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%); /* Center the underline */
-        border-radius: 2px; /* Slightly rounded corners */
+        @apply content-[''] w-20 h-1.5 bg-blue-600 absolute bottom-0 left-1/2 transform -translate-x-1/2 rounded-full;
+    }
+
+    /* Empty Text */
+    .empty-text {
+        @apply text-lg font-semibold text-slate-600 text-center italic;
     }
   </style>
   {{-- blade-formatter-enable --}}
