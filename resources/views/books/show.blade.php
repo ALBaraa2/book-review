@@ -6,6 +6,7 @@
 
     <div class="book-info">
       <div class="book-author mb-4 text-lg font-semibold">by {{ $book->author }}</div>
+      <div class="text-gray-600 leading-relaxed mb-6">{{ $book->description }}</div>
       <div class="book-rating flex items-center">
         <div class="mr-2 text-sm font-medium text-slate-700">
           {{ number_format($book->reviews_avg_rating, 1) }}
@@ -18,11 +19,21 @@
     </div>
   </div>
 
-  <div class="mb-4">
-    <a href="{{ route('books.reviews.create', $book) }}" class="reset-link">
-      Add a review!</a>
+  <hr class="my-4">
+
+  <div class="mb-10">
+    <a href="{{ route('books.index') }}" class="link">🔙 Go back to the task list!</a>
   </div>
-  
+
+  <div class="mb-4 flex space-x-6">
+    <a href="{{ route('books.reviews.create', $book) }}" class="reset-link">Add a review</a>
+    <a href="{{ route('books.edit', $book) }}" class="reset-link">Edit</a>
+  </div>
+
+  <div class="mb-4">
+
+  </div>
+
   <div>
     <h2 class="mb-4 text-xl font-semibold">Reviews</h2>
     <ul>

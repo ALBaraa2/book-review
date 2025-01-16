@@ -14,5 +14,6 @@
           @endfor
         </select>
         <button type="submit" class="btn">Add Review</button>
+        <a href="{{ route('books.show', $book) }}" class="btn-cancel">Cancel</a>
       </form>
 @endsection

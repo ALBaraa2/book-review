@@ -13,7 +13,8 @@ class Book extends Model
 
     protected $fillable = [
         'title',
-        'author'
+        'author',
+        'description'
     ];
 
     public function reviews()

@@ -12,6 +12,14 @@
       @apply bg-white rounded-md px-4 py-2 text-center font-medium text-slate-500 shadow-sm ring-1 ring-slate-700/10 hover:bg-slate-50 h-10;
     }
 
+    .btn-cancel {
+      @apply bg-red-500 hover:bg-red-600 text-white rounded-lg px-4 py-2 transition duration-300;
+    }
+
+    .link {
+        @apply font-medium text-gray-700 underline decoration-blue-500
+    }
+
     .input {
       @apply shadow-sm appearance-none border w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none rounded-md border-slate-300;
     }
