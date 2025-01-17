@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Book Reviews</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   {{-- blade-formatter-disable --}}
   <style type="text/tailwindcss">
@@ -69,7 +70,7 @@
     }
 
     .pagination a {
-        @apply text-gray-600 bg-white hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out py-2 px-4 no-underline rounded-lg border border-gray-200 shadow-sm hover:shadow-md;
+        @apply text-blue-600 bg-white hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out py-2 px-4 no-underline rounded-lg border border-gray-200 shadow-sm hover:shadow-md;
     }
 
     /* Active Pagination Link */

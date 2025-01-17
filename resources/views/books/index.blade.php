@@ -3,12 +3,13 @@
 @section('content')
     <h1 class="page-title">Books</h1>
 
-    <form action="{{ route('books.index') }}" method="GET" class="mb-4 flex items-center space-x-2">
+    <form action="{{ route('books.index') }}" method="GET" class="mb-4 flex items-center space-x-1">
         <input type="text" name="title" placeholder="Search by title"
         value="{{ request('title') }}" class="input h-10"/>
         <input type="hidden" name="filter" value="{{ request('filter') }}"/>
         <button type="submit" class="btn h-10">Search</button>
         <a href="{{ route('books.index') }}" class="btn h-10 color">Clear</a>
+        <a href="{{ route('books.create') }}" class="btn h-10 color" title="Add Book">Add</a>
     </form>
 
     <div class="filter-container mb-4 flex">
@@ -42,7 +43,7 @@
                 </div>
                 <div>
                   <div class="book-rating">
-                    <x-star-rating :rating="$book->reviews_avg_rating" />
+                    <x-star-rating :rating="$book->reviews_avg_rating ?? 0" />
                   </div>
                   <div class="book-review-count">
                     out of {{ $book->reviews_count }} {{ Str::plural('review', $book->reviews_count) }}

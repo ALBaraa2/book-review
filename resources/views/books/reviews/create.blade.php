@@ -5,7 +5,7 @@
     <form method="POST" action="{{ route('books.reviews.store', $book) }}">
         @csrf
         <label for="review">Review</label>
-        <textarea name="review" id="review" required class="input mb-4"></textarea>
+        <textarea placeholder="Your review must be at least 15 characters" name="review" id="review" required class="input mb-4"></textarea>
         <label for="rating">Rating</label>
         <select name="rating" id="rating" class="input mb-4" required>
           <option value="">Select a Rating</option>

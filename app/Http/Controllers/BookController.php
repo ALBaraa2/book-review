@@ -48,15 +48,17 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('books.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
-        //
+        $book = Book::create($request->validated());
+        return redirect()->route('books.index', ['book' => $book])
+        ->with('success', 'Book created successfully');
     }
 
     /**
@@ -94,7 +96,8 @@ class BookController extends Controller
     {
         $book = Book::findOrFail($id);
         $book->update($request->validated());
-        return redirect()->route('books.show', ['book' => $book]);
+        return redirect()->route('books.show', ['book' => $book])
+        ->with('success', 'Book updated successfully');
     }
 
     /**
