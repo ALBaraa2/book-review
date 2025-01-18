@@ -3,6 +3,8 @@
 @section('content')
     <h1 class="page-title">Books</h1>
 
+    @include('alerts.alert')
+
     <form action="{{ route('books.index') }}" method="GET" class="mb-4 flex items-center space-x-1">
         <input type="text" name="title" placeholder="Search by title"
         value="{{ request('title') }}" class="input h-10"/>
