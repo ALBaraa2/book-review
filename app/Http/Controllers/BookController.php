@@ -64,17 +64,17 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(int $id)
+    public function show(int $book)
     {
 
-        $cacheKey = 'book:' . $id;
+        $cacheKey = 'book:' . $book;
 
         $book = cache()->remember($cacheKey,
          3600,
         fn() =>
         Book::with([
             'reviews' => fn($query) => $query->latest()
-        ])->withAvgRating()->withReviewsCount()->findOrFail($id)
+        ])->withAvgRating()->withReviewsCount()->findOrFail($book)
     );
 
         return view('books.show',['book' => $book]);
@@ -83,18 +83,18 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Book $book)
     {
-        $book = Book::findOrFail($id);
+        $book = Book::findOrFail($book);
         return view('books.edit', ['book' => $book]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(BookRequest $request, string $id)
+    public function update(BookRequest $request, Book $book)
     {
-        $book = Book::findOrFail($id);
+        $book = Book::findOrFail($book);
         $book->update($request->validated());
         return redirect()->route('books.show', ['book' => $book])
         ->with('success', 'Book updated successfully');
@@ -103,8 +103,11 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        cache()->flush();
+        return redirect()->route('books.index')
+        ->with('success', "$book->title Book deleted successfully");
     }
 }

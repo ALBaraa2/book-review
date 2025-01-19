@@ -32,6 +32,11 @@
         <a href="{{ route('books.reviews.create', $book) }}" class="reset-link">Add a review</a>
         <a href="{{ route('books.edit', $book) }}" class="reset-link">Edit</a>
     </div>
+    <form action="{{ route('books.destroy', $book) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn-cancel">Delete this book!</button>
+    </form>
 
     <div class="mb-4">
 
@@ -51,6 +56,11 @@
                     {{ $review->created_at->format('M j, Y') }}</div>
                 </div>
                 <p class="text-gray-700">{{ $review->review }}</p>
+                <form action="{{ route('books.reviews.destroy', [$book, $review]) }}" method="POST" class="mt-2">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="text-red-600 hover:text-red-800">Delete Review</button>
+                </form>
             </div>
             </li>
         @empty
