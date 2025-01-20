@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Author;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Book>
@@ -18,7 +19,7 @@ class BookFactory extends Factory
     {
         return [
             'title' => fake()->sentence(3),
-            'author' => fake()->name,
+            'author_id' => Author::factory(),
             'description' => fake()->paragraph,
             'created_at' => fake()->dateTimeBetween('-2 years'),
             'updated_at' => fake()->dateTimeBetween('created_at', 'now')

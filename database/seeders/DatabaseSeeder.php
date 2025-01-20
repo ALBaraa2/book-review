@@ -15,6 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $this->call(AuthorSeeder::class);
+
+        
         Book::factory(33)->create()->each(function ($book) {
             $numReviews = random_int(5, 30);
 
