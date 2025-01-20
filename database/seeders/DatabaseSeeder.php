@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Book;
 use App\Models\Review;
+use App\Models\Author;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,9 +17,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        $this->call(AuthorSeeder::class);
+        Author::factory()->count(10)->create();
 
-        
+
         Book::factory(33)->create()->each(function ($book) {
             $numReviews = random_int(5, 30);
 
