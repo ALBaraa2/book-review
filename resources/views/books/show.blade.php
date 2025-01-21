@@ -8,7 +8,7 @@
         <h1 class="sticky top-0 mb-2 text-2xl">{{ $book->title }}</h1>
 
         <div class="book-info">
-        <div class="book-author mb-4 text-lg font-semibold">by {{ $book->author }}</div>
+        <div class="book-author mb-4 text-lg font-semibold">by {{ $book->author->name }}</div>
         <div class="text-gray-600 leading-relaxed mb-6">{{ $book->description }}</div>
         <div class="book-rating flex items-center">
             <div class="mr-2 text-sm font-medium text-slate-700">
