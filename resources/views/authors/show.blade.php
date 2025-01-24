@@ -16,11 +16,12 @@
             <span class="font-medium">Address:</span> {{ $author->address }}
         </div>
     </div>
+    <div class="book-info p-6 bg-white rounded-lg shadow-lg mt-4">
     <h2 class="text-xl font-semibold mt-6 mb-4">Books</h2>
-    @foreach ($author->books as $book)
-        <div class="book-info p-6 bg-white rounded-lg shadow-lg mt-4">
+        @foreach ($author->books as $book)
+            <div class="mb-6">
             <h3 class="text-lg font-semibold mb-2">
-            <a href="{{ route('books.show', $book->id) }}" class="mb-4 text-lg font-semibold">{{$loop->iteration}}. {{ $book->title }}</a>
+                <a href="{{ route('books.show', $book->id) }}" class="mb-4 text-lg font-semibold">{{$loop->iteration}}. {{ $book->title }}</a>
             </h3>
             <div class="text-gray-600 leading-relaxed mb-4">{{ $book->description }}</div>
             <div class="book-rating flex items-center">
@@ -29,11 +30,11 @@
                     <x-star-rating :rating="$book->reviews_avg_rating ?? 0"/>
                 </div>
                 <span class="book-review-count text-sm text-gray-500">
-                    {{ $book->reviews_count }} {{ Str::plural('review', $book->reviews_count) }}
+                {{ $book->reviews_count }} {{ Str::plural('review', $book->reviews_count) }}
                 </span>
             </div>
-            <a href="{{ route('books.show', $book->id) }}" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">View Book</a>
-        </div>
-    @endforeach
+            </div>
+        @endforeach
+    </div>
 
 @endsection
