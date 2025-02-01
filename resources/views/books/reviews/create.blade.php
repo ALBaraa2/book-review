@@ -13,7 +13,9 @@
             <option value="{{ $i }}">{{ $i }}</option>
           @endfor
         </select>
-        <button type="submit" class="btn">Add Review</button>
-        <a href="{{ route('books.show', $book) }}" class="btn-cancel">Cancel</a>
+        <div class="flex space-x-2">
+            <button type="submit" class="btn">Add Review</button>
+            <a href="{{ route('books.show', $book) }}" class="btn-cancel">Cancel</a>
+        </div>
       </form>
 @endsection

@@ -20,8 +20,10 @@
                         <label for="description">Description:</label>
                         <textarea class="input mb-4" id="description" name="description">{{ $book->description }}</textarea>
                     </div>
-                    <button type="submit" class="btn">Submit</button>
-                    <a href="{{ route('books.show', $book) }}" class="btn-cancel">Cancel</a>
+                    <div class="flex space-x-2">
+                        <button type="submit" class="btn">Submit</button>
+                        <a href="{{ route('books.show', $book) }}" class="btn-cancel">Cancel</a>
+                    </div>
                 </form>
             </div>
         </div>
