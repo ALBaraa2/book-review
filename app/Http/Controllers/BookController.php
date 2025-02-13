@@ -91,10 +91,12 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(BookRequest $request, Book $book)
+    public function update(Request $request, Book $book)
     {
-        $book = Book::findOrFail($book);
-        $book->update($request->validated());
+        $book->update($request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string'
+        ]));
         return redirect()->route('books.show', ['book' => $book])
         ->with('success', 'Book updated successfully');
     }

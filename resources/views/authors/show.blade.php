@@ -29,6 +29,7 @@
                     {{ number_format($book->reviews_avg_rating, 1) }}
                     <x-star-rating :rating="$book->reviews_avg_rating ?? 0"/>
                 </div>
+                {{dd($book)}}
                 <span class="book-review-count text-sm text-gray-500">
                 {{ $book->reviews_count }} {{ Str::plural('review', $book->reviews_count) }}
                 </span>

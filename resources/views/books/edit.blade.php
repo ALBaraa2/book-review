@@ -13,10 +13,6 @@
                         <input type="text" class="input mb-4" id="title" name="title" value="{{ $book->title }}">
                     </div>
                     <div class="form-group">
-                        <label for="author">Author:</label>
-                        <input type="text" class="input mb-4" id="author" name="author" value="{{ $book->author }}">
-                    </div>
-                    <div class="form-group">
                         <label for="description">Description:</label>
                         <textarea class="input mb-4" id="description" name="description">{{ $book->description }}</textarea>
                     </div>
