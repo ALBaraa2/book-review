@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Author;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
@@ -36,7 +37,10 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        return view('authors.show', ['author' => $author]);
+        dd($author);
+        return view('authors.show', [
+            'author' => $author,
+        ]);
     }
 
     /**

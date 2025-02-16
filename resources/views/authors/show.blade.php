@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <h1 class="sticky top-0 mb-2 text-2xl font-bold text-center bg-gray-100 p-4 shadow-md">{{ $author->name }}</h1>
 
     <div class="book-info p-6 bg-white rounded-lg shadow-lg">
@@ -16,6 +17,7 @@
             <span class="font-medium">Address:</span> {{ $author->address }}
         </div>
     </div>
+    {{dd($book)}}
     <div class="book-info p-6 bg-white rounded-lg shadow-lg mt-4">
     <h2 class="text-xl font-semibold mt-6 mb-4">Books</h2>
         @foreach ($author->books as $book)
@@ -29,7 +31,6 @@
                     {{ number_format($book->reviews_avg_rating, 1) }}
                     <x-star-rating :rating="$book->reviews_avg_rating ?? 0"/>
                 </div>
-                {{dd($book)}}
                 <span class="book-review-count text-sm text-gray-500">
                 {{ $book->reviews_count }} {{ Str::plural('review', $book->reviews_count) }}
                 </span>
