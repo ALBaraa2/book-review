@@ -70,7 +70,7 @@ class BookController extends Controller
         $cacheKey = 'book:' . $book;
 
         $book = cache()->remember($cacheKey,
-         3600,
+        3600,
         fn() =>
         Book::with([
             'reviews' => fn($query) => $query->latest()

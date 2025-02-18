@@ -35,9 +35,10 @@ class AuthorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Author $author)
+    public function show(Book $book)
     {
-        dd($author);
+        $books = Book::find($book);
+        dd($books);
         return view('authors.show', [
             'author' => $author,
         ]);
