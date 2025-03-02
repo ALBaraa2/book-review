@@ -17,7 +17,6 @@
             <span class="font-medium">Address:</span> {{ $author->address }}
         </div>
     </div>
-    {{dd($book)}}
     <div class="book-info p-6 bg-white rounded-lg shadow-lg mt-4">
     <h2 class="text-xl font-semibold mt-6 mb-4">Books</h2>
         @foreach ($author->books as $book)
