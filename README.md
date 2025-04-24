@@ -1,4 +1,4 @@
-# 📚 Book Review Web Application
+# 📚 Book Review
 
 A full-featured book review platform built with Laravel and Tailwind CSS.
 
@@ -13,10 +13,9 @@ This application allows users to:
 
 ## 🚀 Features
 
-- **User Authentication**: Secure login and registration using Laravel Breeze.
 - **Review System**: Users can add, edit, and delete their reviews.
 - **Rating Aggregation**: Displays average ratings for each book.
-- **Responsive Design**: Built with Tailwind CSS for mobile and desktop compatibility.
+- **Responsive Design**: Built with Tailwind CSS.
 
 ## 🛠️ Tech Stack
 
